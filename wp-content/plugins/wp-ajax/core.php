@@ -50,4 +50,5 @@ add_action('admin_enqueue_scripts', 'wpa_register_styles');
 
 if(is_admin()){
     include WPA_PLUGIN_INC.'admin/menu.php';
+    include WPA_PLUGIN_INC.'admin/products.php';
 }

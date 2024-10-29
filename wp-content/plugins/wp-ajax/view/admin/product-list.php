@@ -1,4 +1,4 @@
-<h3 class="my-5">لیست محصولات</h3>
+global$all_products; global$all_products; <h3 class="my-5">لیست محصولات</h3>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
    افزودن محصول جدید
@@ -115,32 +115,40 @@
                 </tr>
                 </thead>
                 <tbody>
-
-                <tr>
-                    <th scope="row"><?php echo "test" ?></th>
-                    <td><?php echo "test" ?></td>
-                    <td><?php echo "test" ?></td>
-                    <td><?php echo "test" ?></td>
-                    <td><?php echo "test" ?></td>
-                    <td><?php
-                        switch ("test"){
-                            case 0:
-                                echo '<sapn class="badge text-bg-danger">ناموجود</sapn>';
-                                break;
-                            case 1:
-                                echo '<sapn class="badge text-bg-success">موجود</sapn>';
-                                break;
-                        }
-                        ?></td>
-                    <td>
-                        <i class="bi bi-pencil select-product" data-bs-toggle="modal" data-bs-target="#editProduct" data-id="<?php echo "test" ?>"></i>
-                        <i class="fas fa-times-circle delete-product" id="delete-item-<?php echo "test" ?>" data-id="<?php echo "test" ?>" data-nonce="<?php echo wp_create_nonce() ?>"></i>
-                    </td>
+                <?php $all_products = all_products();
+                //var_dump(all_products());
+                if($all_products):
+                    foreach($all_products as $product):
+                    ?>
+                        <tr>
+                    <th scope="row"><?php echo $product->ID ?></th>
+                <td><?php echo $product->p_name ?></td>
+                <td><?php echo $product->p_brand ?></td>
+                <td><?php echo $product->p_model ?></td>
+                <td><?php echo $product->p_price ?></td>
+                            <td><?php echo $product->p_status ?></td>
+                <td><?php
+                    switch ($product->p_status) {
+                        case 0:
+                            echo '<sapn class="badge text-bg-danger">ناموجود</sapn>';
+                            break;
+                        case 1:
+                            echo '<sapn class="badge text-bg-success">موجود</sapn>';
+                            break;
+                    }
+                    ?></td>
+                <td>
+                    <i class="bi bi-pencil select-product" data-bs-toggle="modal" data-bs-target="#editProduct" data-id="<?php echo "test" ?>"></i>
+                    <i class="fas fa-times-circle delete-product" id="delete-item-<?php echo "test" ?>" data-id="<?php echo "test" ?>" data-nonce="<?php echo wp_create_nonce() ?>"></i>
+                </td>
                 </tr>
-<!--                --><?php //endforeach; ?>
-<!--                --><?php //else: ?>
+                <!--                --><?php endforeach; ?>
+                <!--                --><?php else: ?>
                 <div class="alert alert-warning">تاکنون محصولی ثبت نشده است.</div>
-<?php //endif; ?>
+                <?php endif; ?>
+
+
+
                 </tbody>
             </table>
         </div>
