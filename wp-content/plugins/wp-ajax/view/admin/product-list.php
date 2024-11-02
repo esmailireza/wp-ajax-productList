@@ -138,7 +138,7 @@ global$all_products; global$all_products; <h3 class="my-5">لیست محصولا
                     }
                     ?></td>
                 <td>
-                    <i class="bi bi-pencil select-product" data-bs-toggle="modal" data-bs-target="#editProduct" data-id="<?php echo "test" ?>"></i>
+                    <i class="bi bi-pencil select-product" data-bs-toggle="modal" data-bs-target="#editProduct" id="delete-item-<?php echo $product->ID ?>"></i>
                     <i class="fas fa-times-circle delete-product" id="delete-item-<?php echo "test" ?>" data-id="<?php echo "test" ?>" data-nonce="<?php echo wp_create_nonce() ?>"></i>
                 </td>
                 </tr>
