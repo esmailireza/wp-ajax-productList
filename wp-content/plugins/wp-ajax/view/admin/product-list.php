@@ -17,24 +17,24 @@ global$all_products; global$all_products; <h3 class="my-5">لیست محصولا
                     <div class="row">
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="name" class="form-label">نام محصول</label>
-                            <input type="text" class="form-control" id="name" placeholder="نام محصول ...">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="نام محصول ...">
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="brand" class="form-label">برند</label>
-                            <input type="text" class="form-control" id="brand" placeholder="برند محصول ...">
+                            <input type="text" class="form-control" id="brand" name="brand" placeholder="برند محصول ...">
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="model" class="form-label">مدل</label>
-                            <input type="text" class="form-control" id="model" placeholder="مدل محصول ...">
+                            <input type="text" class="form-control" id="model" name="model" placeholder="مدل محصول ...">
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="model" class="form-label">قیمت</label>
-                            <input type="text" class="form-control" id="price" placeholder="قیمت محصول ...">
+                            <input type="text" class="form-control" id="price" name="price" placeholder="قیمت محصول ...">
                         </div>
                         <div class="col-sm-12 col-md-12 mb-3">
                             <label for="status" class="form-label">وضعیت محصول</label>
 
-                            <select class="form-select" id="status">
+                            <select class="form-select" id="status" name="status">
                                 <option value="0">ناموجود</option>
                                 <option value="1">موجود</option>
                             </select>
