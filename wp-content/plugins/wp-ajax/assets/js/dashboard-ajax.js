@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
         let price = $('#price').val();
         let status = $('#status').val();
         $.ajax({
-            url: '/wp-admin/admin-ajax.php',
+            url: 'http://localhost/wp-ajax/wp-admin/admin-ajax.php',
             type: 'post',
             data:{
                 action:'add_product',

@@ -35,6 +35,7 @@ function wpa_register_styles()
         wp_enqueue_script('dashboard-js');
         wp_register_script('dashboard-ajax-js', WPA_PLUGIN_ASSETS_URL . 'js/dashboard-ajax.js', ['jquery'], '1.0.0', '');
         wp_enqueue_script('dashboard-ajax-js');
+
         wp_register_script('sweet-alert-js', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', '', '2.0.0', '');
         wp_enqueue_script('sweet-alert-js');
     } else {

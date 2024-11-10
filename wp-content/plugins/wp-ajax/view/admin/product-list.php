@@ -1,4 +1,4 @@
-global$all_products; global$all_products; <h3 class="my-5">لیست محصولات</h3>
+<h3 class="my-5">لیست محصولات</h3>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
    افزودن محصول جدید
