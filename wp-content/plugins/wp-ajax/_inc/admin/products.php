@@ -1,5 +1,7 @@
 <?php
 add_action('wp_ajax_add_product', 'add_product');
+add_action('wp_ajax_delete_product', 'delete_product');
+add_action('wp_ajax_select_product_by_id', 'select_product_by_id');
 
 function all_products(){
     global $wpdb;
@@ -33,4 +35,22 @@ function add_product()
     ];
     $format = ['%s','%s','%s','%s','%d'];
     $wpdb->insert($table,$data,$format);
+}
+
+function delete_product()
+{
+    global $wpdb;
+    $table = $wpdb->prefix . 'products';
+    $ID = (int)$_POST['product_ID'];
+    $where = ['ID' => $ID];
+    $where_format = ['%d'];
+    $wpdb->delete($table,$where, $where_format);
+}
+
+function select_product_by_id(){
+    global $wpdb;
+    $table = $wpdb->prefix . 'products';
+    $ID = (int)$_POST['product_ID'];
+    $stmt = $wpdb->get_row($wpdb->prepare("SELECT p_name,p_brand,p_model,p_price,p_status FROM $table WHERE ID='%d'",$ID));
+    var_dump($stmt);
 }
