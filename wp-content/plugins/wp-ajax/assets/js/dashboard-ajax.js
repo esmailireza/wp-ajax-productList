@@ -55,7 +55,15 @@ jQuery(document).ready(function ($) {
                 product_ID:product_ID
             },
             success:function (response) {
-                console.log("response:",response);
+                let data = JSON.parse(response);
+                $('#p_ID').val(data.ID)
+                $('#p_name').val(data.p_name);
+                $('#p_brand').val(data.p_brand);
+                $('#p_model').val(data.p_model);
+                $('#p_price').val(data.p_price);
+                $('#p_status').val(data.p_status);
+                console.log(data);
+
             },
             error:function (error) {
                 console.log("error:",error);

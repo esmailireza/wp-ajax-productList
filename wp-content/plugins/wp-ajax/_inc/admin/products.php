@@ -52,5 +52,14 @@ function select_product_by_id(){
     $table = $wpdb->prefix . 'products';
     $ID = (int)$_POST['product_ID'];
     $stmt = $wpdb->get_row($wpdb->prepare("SELECT p_name,p_brand,p_model,p_price,p_status FROM $table WHERE ID='%d'",$ID));
-    var_dump($stmt);
+    $output = [
+        'ID' => $stmt->ID,
+        'p_name' => $stmt->p_name,
+        'p_brand' => $stmt->p_brand,
+        'p_model' => $stmt->p_model,
+        'p_price' => $stmt->p_price,
+        'p_status' => $stmt->p_status
+    ];
+    echo json_encode($output);
+    wp_die();
 }
