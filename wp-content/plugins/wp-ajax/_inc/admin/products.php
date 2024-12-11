@@ -86,5 +86,20 @@ function update_product()
     $where = ['ID' => $p_ID];
     $where_format = ['%d'];
     $format = ['%s','%s','%s','%s','%d'];
-    $wpdb->update($table,$data,$where,$format,$where_format);
+    $stmt = $wpdb->update($table,$data,$where,$format,$where_format);
+    if($stmt){
+        wp_send_json(
+            [
+                "success" => true,
+                "message" => "بروزرسانی محصول مورد نظر با موفقیت صورت گرفت"
+            ],status_code: 200
+        );
+    }else{
+        wp_send_json(
+            [
+                "error" => true,
+                "message" => "خطایی در بروزرسانی محصول موردنظر اتفاق افتاد!"
+            ],status_code: 403
+        );
+    }
 }

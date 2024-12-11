@@ -93,10 +93,14 @@ jQuery(document).ready(function ($) {
                 p_status: p_status
             },
             success: function (response) {
-                console.log("response:", response);
+                if(response.success){
+                    alert(response.message);
+                }
             },
             error: function (error) {
-                console.log("error:", error);
+                if(error.error){
+                    alert(error.responseJSON.message);
+                }
             }
         });
     })
